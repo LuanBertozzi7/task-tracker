@@ -1,0 +1,21 @@
+{
+  "name": "task-tracker",
+  "version": "1.0.0",
+  "description": "CLI simples para **rastrear e gerenciar tarefas** (todo / in-progress / done) com **persistência em arquivo JSON**.",
+  "main": "task-cli.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuanBertozzi7/task-tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/LuanBertozzi7/task-tracker/issues"
+  },
+  "homepage": "https://github.com/LuanBertozzi7/task-tracker#readme"
+}
