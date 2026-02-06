@@ -4,7 +4,7 @@
   "description": "CLI simples para **rastrear e gerenciar tarefas** (todo / in-progress / done) com **persistência em arquivo JSON**.",
   "main": "task-cli.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node task-cli.js"
   },
   "repository": {
     "type": "git",
@@ -13,7 +13,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/LuanBertozzi7/task-tracker/issues"
   },
