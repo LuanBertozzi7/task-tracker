@@ -1,7 +1,7 @@
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
 
-const TASK_FILE = path.join(process.cwd(), "tasks-file.json");
+const TASK_FILE = path.join(process.cwd(), "./tasks-file.json");
 
 export function taskFileCreate() {
   try {
