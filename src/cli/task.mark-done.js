@@ -13,5 +13,4 @@ export function taskDone(idString) {
 
   task.status = newStatus;
   saveTasks(tasks);
-  console.log(tasks);
 }

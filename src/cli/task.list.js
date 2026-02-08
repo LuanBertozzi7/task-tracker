@@ -1,11 +1,11 @@
 import { loadTasks } from '../../utilities/tasks.create.js';
 
-export function TaskList(statusString) {
+export function taskList(statusString) {
   const tasks = loadTasks();
   const tasksTarget = tasks.filter((t) => t.status == statusString) ?? null;
 
   // treatment
-  const valid = new Set(['concluida', 'andamento']);
+  const valid = new Set(['concluida', 'andamento', '']);
   const status = String(statusString ?? '')
     .trim()
     .toLowerCase();

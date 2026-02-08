@@ -1,6 +1,6 @@
 import { loadTasks, saveTasks } from '../../utilities/tasks.create.js';
 
-export function TaskDelete(id) {
+export function taskDelete(id) {
   const tasks = loadTasks();
   const newTasks = tasks.filter((task) => task.id !== Number(id));
 

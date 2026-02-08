@@ -1,6 +1,6 @@
 import { loadTasks, saveTasks } from '../../utilities/tasks.create.js';
 
-export function TaskProgress(idString) {
+export function taskProgress(idString) {
   const id = Number(idString);
   const newStatus = 'andamento';
 
