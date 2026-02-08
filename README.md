@@ -1,6 +1,4 @@
-# Task Tracker CLI 📝
-
-- Este é um simples projeto para o roadmap.sh
+- Este é um simples projeto para o roadmap.sh, com o objetivo de ganhar experiencia!
 
 ---
 
