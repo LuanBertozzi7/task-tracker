@@ -1,247 +1,97 @@
-# task-tracker (CLI)
+# Task Tracker CLI 📝
 
-CLI simples para **rastrear e gerenciar tarefas** (todo / in-progress / done) com **persistência em arquivo JSON**.
-
-Desafio de referência: https://roadmap.sh/projects/task-tracker
+- Este é um simples projeto para o roadmap.sh
 
 ---
 
-## Requisitos atendidos
+## 🚀 Funcionalidades
 
-- Executa via **linha de comando**
-- Aceita **ações e entradas** como argumentos
-- Armazena as tarefas em um **arquivo JSON**
-- Permite:
-  - adicionar, atualizar e excluir tarefas
-  - marcar tarefa como **em andamento** ou **feita**
-  - listar todas as tarefas
-  - listar tarefas por status: `done`, `in-progress`
+- **Modo Interativo**: Um shell dedicado (`>`) para você digitar seus comandos rapidamente.
+- **Persistência Automática**: As tarefas são salvas em `storage/tasks-file.json`. Se o arquivo não existir, ele cria para você.
+- **CRUD Simples e Completo**: Adicione, liste, atualize descrições e remova tarefas.
+- **Controle de Status**: Marque tarefas como "em andamento" ou "concluída".
 
 ---
 
-## Stack
+## 🛠️ Como Rodar
 
-- Node.js (>= 18 recomendado)
-- JavaScript
-- `fs` / `path` (File System) para persistência
+Você vai precisar do Node.js instalado (versão 18+ recomendada).
 
----
+1. **Clone o projeto e entre na pasta:**
+   ```bash
+   git clone https://github.com/LuanBertozzi7/task-tracker.git
+   cd task-tracker
+   ```
 
-## Estrutura sugerida do projeto
+2. **Instale as dependências (opcional):**
+   O projeto usa apenas módulos nativos do Node para rodar, mas se quiser usar as ferramentas de lint/format:
+   ```bash
+   npm install
+   ```
 
-> Você pode adaptar, mas esta estrutura facilita manutenção.
-
-```
-task-tracker/
-  ├─ src/
-  │  ├─ cli.js            # ponto de entrada (parse de args / roteamento)
-  │  ├─ store.js          # ler/escrever tasks.json
-  │  ├─ tasks.js          # regras de negócio (CRUD + status)
-  │  └─ format.js         # formatação de saída (listagem bonita)
-  ├─ tasks.json           # banco de dados local (criado automaticamente se não existir)
-  ├─ package.json
-  └─ README.md
-```
+3. **Execute o CLI:**
+   ```bash
+   npm run dev
+   ```
 
 ---
 
-## Modelo de dados
+## 💻 Guia de Comandos
 
-Cada tarefa deve conter:
+Ao iniciar, você verá o prompt `>`. Basta digitar os comandos abaixo.
+**Dica:** Se o texto da tarefa tiver espaços, use aspas (ex: `"Minha tarefa"`).
 
-```json
-{
-  "id": 1,
-  "description": "Estudar Node.js",
-  "status": "todo",
-  "createdAt": "2026-02-05T14:30:00.000Z",
-  "updatedAt": "2026-02-05T14:30:00.000Z"
-}
-```
-
-Campos:
-
-- `id` (number): incremental e único
-- `description` (string): texto da tarefa
-- `status` (string): `todo` | `in-progress` | `done`
-- `createdAt` / `updatedAt` (string ISO): timestamps
-
----
-
-## Instalação
-
-1. Crie o projeto e inicialize o npm:
-
+### Adicionar Tarefa
 ```bash
-mkdir task-tracker
-cd task-tracker
-npm init -y
+> add "Comprar café"
 ```
 
-2. Crie o ponto de entrada (ex.: `src/cli.js`) e configure um script:
-
-```json
-{
-  "scripts": {
-    "task": "node src/cli.js"
-  }
-}
-```
-
-3. (Opcional) Torne “executável” como comando:
-
-- No topo do `src/cli.js`, adicione:
-
-```js
-#!/usr/bin/env node
-```
-
-- E no `package.json`, exponha o bin:
-
-```json
-{
-  "bin": {
-    "task-tracker": "src/cli.js"
-  }
-}
-```
-
-Depois rode:
-
+### Listar Tarefas
+Mostra todas as tarefas salvas.
 ```bash
-npm link
+> list
 ```
 
-Aí você poderá usar `task-tracker ...` em vez de `node src/cli.js ...`.
-
----
-
-## Uso (comandos)
-
-A CLI segue o formato:
-
+### Filtrar por Status
+Você pode filtrar por `andamento` ou `concluida`.
 ```bash
-node src/cli.js <comando> [argumentos]
+> list andamento
+> list concluida
 ```
 
-ou, se você criou o script:
-
+### Atualizar Descrição
+Muda o texto de uma tarefa existente (precisa do ID).
 ```bash
-npm run task -- <comando> [argumentos]
+> update 1 "Comprar café e açúcar"
 ```
 
-### Adicionar tarefa
-
+### Mudar Status
 ```bash
-npm run task -- add "Comprar pão"
+> mark-in-progress 1
+> mark-done 1
 ```
 
-### Atualizar tarefa (descrição)
-
+### Remover Tarefa
+Deleta permanentemente a tarefa pelo ID.
 ```bash
-npm run task -- update 1 "Comprar pão integral"
+> delete 1
 ```
 
-### Excluir tarefa
-
+### Sair
 ```bash
-npm run task -- delete 1
-```
-
-### Marcar como em andamento
-
-```bash
-npm run task -- mark-in-progress 2
-```
-
-### Marcar como concluída
-
-```bash
-npm run task -- mark-done 2
-```
-
-### Listar tarefas
-
-```bash
-npm run task -- list
-```
-
-### Listar por status
-
-```bash
-npm run task -- list todo
-npm run task -- list in-progress
-npm run task -- list done
+> exit
 ```
 
 ---
 
-## Saída esperada (exemplo)
+## 📂 Estrutura do Projeto
 
-Você pode imprimir no terminal algo como:
+Pra quem quiser dar uma fuçar no código:
 
-```
-[1] (todo) Estudar Node.js
-[2] (in-progress) Implementar store JSON
-[3] (done) Criar comandos CLI
-```
-
----
-
-## Regras e validações recomendadas
-
-- Se o usuário tentar atualizar/deletar um `id` que não existe → mostrar mensagem clara e sair com código != 0
-- Se o usuário não passar argumentos necessários → mostrar `help/uso`
-- Criar `tasks.json` automaticamente se não existir
-- Não permitir `description` vazia
-- Status válido apenas: `todo`, `in-progress`, `done`
+- **`bin/task-cli.js`**: O coração do CLI. Configura o modo interativo e processa a entrada do usuário.
+- **`src/cli/`**: Aqui ficam as funções de cada comando (`add`, `list`, `remove`, etc.).
+- **`utilities/`**: Funções para ler e escrever no arquivo JSON (`tasks.create.js`).
+- **`storage/`**: Pasta onde o `tasks-file.json` é guardado.
 
 ---
 
-## Etapas de implementação (passo a passo)
-
-1. **Parse de argumentos**
-   - Ler `process.argv.slice(2)` e extrair `command` e `args`.
-
-2. **Persistência**
-   - Implementar `loadTasks()` e `saveTasks(tasks)` em `store.js`.
-   - Se `tasks.json` não existir, iniciar com `[]`.
-
-3. **CRUD**
-   - `addTask(description)`
-   - `updateTask(id, description)`
-   - `deleteTask(id)`
-   - Cada operação atualiza `updatedAt` (e `createdAt` no add).
-
-4. **Status**
-   - `markInProgress(id)` define `status = "in-progress"`
-   - `markDone(id)` define `status = "done"`
-
-5. **Listagem**
-   - `listTasks()` (todas)
-   - `listTasksByStatus(status)` (filtro)
-
-6. **Mensagens e erros**
-   - Mensagens curtas, claras, sempre informando o que aconteceu
-   - `process.exit(1)` em erro de uso/validação
-
-7. **Polimento**
-   - Formatar lista com colchetes e status
-   - (Opcional) ordenar por `id`
-
----
-
-## Ideias de extensões (opcional)
-
-- Prioridade: `low | medium | high`
-- Data de vencimento (`dueDate`)
-- Tags (`tags: string[]`)
-- Busca (`search "<texto>"`)
-- Exportar CSV
-- Arquivo configurável (ex.: `--file ./minhas-tarefas.json`)
-
----
-
-## Licença
-
-Uso educacional / portfólio.
