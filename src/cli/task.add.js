@@ -1,7 +1,7 @@
 import { addTask } from "../core/task.service.js";
 
-export function taskAddCli(args) {
-  const description = args.join(' ').trim();
+export function taskAddCli(...rest) {
+  const description = rest.join(" ");
   const task = addTask(description);
   console.log(`Task adicionada! ID: ${task.id}`);
 }

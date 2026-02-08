@@ -1,6 +1,6 @@
 {
   "name": "task-tracker",
-  "version": "0.0.1c",
+  "version": "0.0.2",
   "description": "CLI simples para **rastrear e gerenciar tarefas** (todo / in-progress / done) com **persistência em arquivo JSON**.",
   "main": "task-cli.js",
   "scripts": {
