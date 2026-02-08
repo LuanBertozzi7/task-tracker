@@ -1,4 +1,3 @@
-- Este é um simples projeto para o roadmap.sh, com o objetivo de ganhar experiencia!
 https://roadmap.sh/projects/task-tracker
 
 ---
