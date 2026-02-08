@@ -6,32 +6,39 @@
 import { taskFileCreate } from '../utilities/tasks.create.js';
 taskFileCreate();
 
-import { command, rest } from '../src/core/task.args.js';
+import { command, rest, args} from '../src/core/task.args.js';
 // cli functions 
-import { taskAddCli } from '../src/cli/task.add.js';
-import { taskDeleteCli } from '../src/cli/task.remove.js';
-import { taskListCli } from '../src/cli/task.list.js';
+import { TaskAdd } from '../src/cli/task.add.js';
+import { TaskDelete } from '../src/cli/task.remove.js';
+import { TaskList } from '../src/cli/task.list.js';
+import { taskUpdate } from '../src/cli/task.update.js';
+
 
 
 
 try {
   switch (command) {
     case 'add': {
-      taskAddCli(...rest)
+      TaskAdd(...rest)
       break;
     }
     case 'delete': {
-      taskDeleteCli(...rest);
+      TaskDelete(...rest);
       break;
     }
     case 'list': {
-      taskListCli();
+      TaskList();
+      break;
+    }
+    case 'update': {
+      taskUpdate(args);
       break;
     }
     default:
-      console.log('invalid command, use: add | list | update | delete | mark-in-progress');
+      console.log('comando inválido, help: add | list | update | delete | mark-in-progress');
   }
 } catch (e) {
   console.error(String(e.message || e));
   process.exitCode = 1;
 }
+  

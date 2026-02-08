@@ -1,6 +1,6 @@
 import { loadTasks } from "../../utilities/tasks.create.js";
 
-export function taskListCli() {
+export function TaskList() {
   const tasks = loadTasks();
 
   if (tasks.length === 0) {

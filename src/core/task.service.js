@@ -1,4 +1,5 @@
 import { saveTasks, loadTasks } from '../../utilities/tasks.create.js';
+import { formatDateTask } from '../../utilities/date.js';
 
 function nextId(tasks) {
   const list = Array.isArray(tasks) ? tasks : [];
@@ -6,20 +7,18 @@ function nextId(tasks) {
   return max + 1;
 }
 
-export function addTask(description) {
+export function addTaskService(description) {
   const desc = String(description || '').trim();
-  if (!desc) throw new Error('A descrição da task é obrigatória! (task-cli.js add <description>');
+  if (!desc) throw new Error('A descrição da tarefa é obrigatória! (add <description>');
 
   const tasks = loadTasks();
-  const data = new Date();
-  const now = data.toISOString().split('T')[0]; // YYYY-MM-DD
 
   const task = {
     id: nextId(tasks),
     description: desc,
     status: 'todo',
-    createdAt: now,
-    updateAt: now,
+    createdAt: formatDateTask(),
+    updateAt: formatDateTask(),
   };
 
   tasks.push(task);

@@ -1,7 +1,7 @@
-import { addTask } from "../core/task.service.js";
+import { addTaskService } from "../core/task.service.js";
 
-export function taskAddCli(...rest) {
+export function TaskAdd(...rest) {
   const description = rest.join(" ");
-  const task = addTask(description);
-  console.log(`Task adicionada! ID: ${task.id}`);
+  const task = addTaskService(description);
+  console.log(`Tarefa adicionada! ID: ${task.id}`);
 }

@@ -7,10 +7,10 @@ export function taskFileCreate() {
   try {
     if (!fs.existsSync(TASK_FILE)) {
       fs.writeFileSync(TASK_FILE, JSON.stringify([], null, 2), 'utf-8');
-      console.log('tasks file did not exist, so it was created at ', TASK_FILE);
+      console.log('o arquivo json de tarefas não existia, então foi criado um em ', TASK_FILE);
     }
   } catch (e) {
-    console.log("problems with creating task's file");
+    console.log("Houve problemas com a criação do json de tarefas!");
     console.log(e);
   }
 }
