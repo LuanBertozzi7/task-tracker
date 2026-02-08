@@ -1,16 +1,23 @@
 [
   {
     "id": 1,
-    "description": "comprar cafe",
-    "status": "todo",
-    "createdAt": "15:16 08/02/2026",
-    "updateAt": "15:16 08/02/2026"
+    "description": "cafe cafe e cafe",
+    "status": "andamento",
+    "createdAt": "15:21 08/02/2026",
+    "updateAt": "15:21 08/02/2026"
   },
   {
     "id": 2,
-    "description": "comprar cha tbm",
-    "status": "todo",
-    "createdAt": "15:16 08/02/2026",
-    "updateAt": "15:16 08/02/2026"
+    "description": "cafe mai",
+    "status": "andamento",
+    "createdAt": "15:37 08/02/2026",
+    "updateAt": "15:37 08/02/2026"
+  },
+  {
+    "id": 3,
+    "description": "opa, mais:",
+    "status": "andamento",
+    "createdAt": "15:37 08/02/2026",
+    "updateAt": "15:37 08/02/2026"
   }
 ]

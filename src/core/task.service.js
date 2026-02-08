@@ -16,7 +16,7 @@ export function addTaskService(description) {
   const task = {
     id: nextId(tasks),
     description: desc,
-    status: 'todo',
+    status: 'andamento',
     createdAt: formatDateTask(),
     updateAt: formatDateTask(),
   };

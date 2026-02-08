@@ -12,9 +12,8 @@ import { TaskAdd } from '../src/cli/task.add.js';
 import { TaskDelete } from '../src/cli/task.remove.js';
 import { TaskList } from '../src/cli/task.list.js';
 import { taskUpdate } from '../src/cli/task.update.js';
-
-
-
+import { taskDone } from '../src/cli/task.mark-done.js';
+import { TaskProgress } from '../src/cli/task.mark-in-progress.js';
 
 try {
   switch (command) {
@@ -32,6 +31,14 @@ try {
     }
     case 'update': {
       taskUpdate(args);
+      break;
+    }
+    case 'mark-done': {
+      taskDone(...rest);
+      break;
+    }
+    case 'mark-in-progress': {
+      TaskProgress(...rest);
       break;
     }
     default:

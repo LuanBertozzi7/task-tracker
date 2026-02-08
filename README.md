@@ -15,7 +15,7 @@ Desafio de referência: https://roadmap.sh/projects/task-tracker
   - adicionar, atualizar e excluir tarefas
   - marcar tarefa como **em andamento** ou **feita**
   - listar todas as tarefas
-  - listar tarefas por status: `done`, `todo`, `in-progress`
+  - listar tarefas por status: `done`, `in-progress`
 
 ---
 
