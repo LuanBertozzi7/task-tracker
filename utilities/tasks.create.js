@@ -10,7 +10,7 @@ export function taskFileCreate() {
       console.log('o arquivo json de tarefas não existia, então foi criado um em ', TASK_FILE);
     }
   } catch (e) {
-    console.log("Houve problemas com a criação do json de tarefas!");
+    console.log('Houve problemas com a criação do json de tarefas!');
     console.log(e);
   }
 }

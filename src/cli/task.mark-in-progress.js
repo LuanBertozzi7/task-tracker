@@ -1,8 +1,8 @@
-import { loadTasks, saveTasks } from "../../utilities/tasks.create.js";
+import { loadTasks, saveTasks } from '../../utilities/tasks.create.js';
 
 export function TaskProgress(idString) {
   const id = Number(idString);
-  const newStatus = "andamento";
+  const newStatus = 'andamento';
 
   const tasks = loadTasks();
   const task = tasks.find((t) => Number(t.id) === id);
